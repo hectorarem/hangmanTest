@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Reveal Bootstrap Template</title>
+    <title>HANGMAN game</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -39,36 +39,11 @@
 </head>
 
 <body id="body">
-
-<!--==========================
-  Top Bar
-============================-->
-<section id="topbar" class="d-none d-lg-block">
-    <div class="container clearfix">
-        <div class="contact-info float-left">
-            <i class="fa fa-envelope-o"></i> <a href="mailto:contact@example.com">hangman@example.com</a>
-            <i class="fa fa-phone"></i> +1 5589 55488 55
-        </div>
-        <div class="social-links float-right">
-            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-        </div>
-    </div>
-</section>
-
-<!--==========================
-  Header
-============================-->
 <header id="header">
     <div class="container">
 
         <div id="logo" class="pull-left">
             <h1><a href="#body" class="scrollto">HangMan<span>game</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
         </div>
 
         <nav id="nav-menu-container">
@@ -112,80 +87,86 @@
                 </div>
                 <div class="col-lg-8 col-sm-12">
                     <div class="box wow fadeInLeft">
-                        <img id="imageMan" src="static/hangmanpict/{{ fault }}.jpg" alt="{{ fault }}" height="200px"
-                             width="150px">
-
-                        {% for w in word %}
-                            {% if w == "" %}
-                                <div class="icon"><b id="wordLetter{{ forloop.counter }}"
-                                                     style="margin-right: 5px">___</b></div>
-                            {% else %}
-                                <div class="icon"><b id="wordLetter{{ forloop.counter }}"
-                                                     style="margin-right: 5px">{{ w }}</b></div>
-                            {% endif %}
-                        {% endfor %}
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-6 col-sm-12">
+                                <img id="imageMan" src="static/hangmanpict/{{ fault }}.jpg" alt="{{ fault }}"
+                                     height="200px"
+                                     width="150px">
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <span class="input-group-sm bottom-right">
+                                    {% for w in word %}
+                                        {% if w == "" %}
+                                            <b id="wordLetter{{ forloop.counter }}"
+                                               style="margin-right: 5px">___</b>
+                                        {% else %}
+                                            <b id="wordLetter{{ forloop.counter }}"
+                                               style="margin-right: 5px">{{ w }}</b>
+                                        {% endif %}
+                                    {% endfor %}
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-10 col-sm-12">
                             <span class="input-group-sm">
-                                <a id="a" onclick="wordUpd('a')" class="btn btn-primary"
+                                <a id="a" onclick="wordUpd('a')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">A</a>
-                                <a id="b" onclick="wordUpd('b')" class="btn btn-primary"
+                                <a id="b" onclick="wordUpd('b')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">B</a>
-                                <a id="c" onclick="wordUpd('c')" class="btn btn-primary"
+                                <a id="c" onclick="wordUpd('c')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">C</a>
-                                <a id="d" onclick="wordUpd('d')" class="btn btn-primary"
+                                <a id="d" onclick="wordUpd('d')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">D</a>
-                                <a id="e" onclick="wordUpd('e')" class="btn btn-primary"
+                                <a id="e" onclick="wordUpd('e')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">E</a>
-                                <a id="f" onclick="wordUpd('f')" class="btn btn-primary"
+                                <a id="f" onclick="wordUpd('f')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">F</a>
-                                <a id="g" onclick="wordUpd('g')" class="btn btn-primary"
+                                <a id="g" onclick="wordUpd('g')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">G</a>
-                                <a id="h" onclick="wordUpd('h')" class="btn btn-primary"
+                                <a id="h" onclick="wordUpd('h')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">H</a>
-                                <a id="i" onclick="wordUpd('i')" class="btn btn-primary"
+                                <a id="i" onclick="wordUpd('i')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">I</a>
-                                <a id="j" onclick="wordUpd('j')" class="btn btn-primary"
+                                <a id="j" onclick="wordUpd('j')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">J</a>
                             </span>
-                            </div>
-                            <div class="col-lg-12" style="margin-top: 10px">
-                            <span class="input-group-sm">
-                                <a id="k" onclick="wordUpd('k')" class="btn btn-primary"
+                                <span class="input-group-sm">
+                                <a id="k" onclick="wordUpd('k')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">K</a>
-                                <a id="l" onclick="wordUpd('l')" class="btn btn-primary"
+                                <a id="l" onclick="wordUpd('l')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">L</a>
-                                <a id="m" onclick="wordUpd('m')" class="btn btn-primary"
+                                <a id="m" onclick="wordUpd('m')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">M</a>
-                                <a id="n" onclick="wordUpd('n')" class="btn btn-primary"
+                                <a id="n" onclick="wordUpd('n')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">N</a>
-                                <a id="o" onclick="wordUpd('o')" class="btn btn-primary"
+                                <a id="o" onclick="wordUpd('o')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">O</a>
-                                <a id="p" onclick="wordUpd('p')" class="btn btn-primary"
+                                <a id="p" onclick="wordUpd('p')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">P</a>
-                                <a id="q" onclick="wordUpd('q')" class="btn btn-primary"
+                                <a id="q" onclick="wordUpd('q')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">Q</a>
-                                <a id="r" onclick="wordUpd('r')" class="btn btn-primary"
+                                <a id="r" onclick="wordUpd('r')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">R</a>
-                                <a id="s" onclick="wordUpd('s')" class="btn btn-primary"
+                                <a id="s" onclick="wordUpd('s')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">S</a>
-                                <a id="t" onclick="wordUpd('t')" class="btn btn-primary"
+                                <a id="t" onclick="wordUpd('t')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">T</a>
                             </span>
-                            </div>
-                            <div class="col-lg-12" style="margin-top: 10px">
-                        <span class="input-group-sm">
-                                <a id="u" onclick="wordUpd('u')" class="btn btn-primary"
+                                 <span class="input-group-sm">
+                                <a id="u" onclick="wordUpd('u')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">U</a>
-                                <a id="v" onclick="wordUpd('v')" class="btn btn-primary"
+                                <a id="v" onclick="wordUpd('v')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">V</a>
-                                <a id="w" onclick="wordUpd('w')" class="btn btn-primary"
+                                <a id="w" onclick="wordUpd('w')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">W</a>
-                                <a id="x" onclick="wordUpd('x')" class="btn btn-primary"
+                                <a id="x" onclick="wordUpd('x')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">X</a>
-                                <a id="y" onclick="wordUpd('y')" class="btn btn-primary"
+                                <a id="y" onclick="wordUpd('y')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">Y</a>
-                                <a id="z" onclick="wordUpd('z')" class="btn btn-primary"
+                                <a id="z" onclick="wordUpd('z')" class="btn btn-primary m-1"
                                    style="height: 40px; width: 40px; color: white">Z</a>
                             </span>
                             </div>
@@ -205,7 +186,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-sm-12">
-                    <h2>How my friend play?</h2>
+                    <h2>How can my friend play?</h2>
                     <p>Just pick a random word, of our database, copy the url for share and voilá!!</p>
                     <p>Dont forget ask to your friend a screenshot!!</p>
                 </div>
@@ -235,7 +216,7 @@
 <footer id="footer">
     <div class="container">
         <div class="copyright">
-            &copy; Copyright <strong>HangManTest</strong>. All Rights Reserved
+            &copy; Copyright <strong>HangMan</strong>. All Rights Reserved
         </div>
         <div class="credits">
             <!--
@@ -244,7 +225,7 @@
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
             -->
-            Designed by <a>Héctor Alonso Remedios</a>
+            Designed by <a target="_blank" href="https://bootstrapmade.com/">BootstrapMade</a> Customize by <a target="_blank" href="http://hectoralonsoremedios.pythonanywhere.com">Héctor Alonso Remedios</a>
         </div>
     </div>
 </footer><!-- #footer -->
@@ -295,7 +276,7 @@
                 if (data.lose) {
                     $('#imageMan').attr('src', 'static/hangmanpict/7.jpg');
                     $('#playAgain').removeAttr('hidden');
-                    alert('You lose')
+                    alert('You lose, the word is ' + data.word)
                 } else {
                     if (data.win) {
                         $('#gameId').val(data.gameId);

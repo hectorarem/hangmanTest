@@ -64,7 +64,7 @@ def updateWord(request):
             game.fault = game.fault + 1
             game.save()
             if game.fault >= 6:
-                return JsonResponse({'lose': True})
+                return JsonResponse({'lose': True, 'word': word.word.upper()})
             return JsonResponse({'gameId': game.id, 'fault': game.fault + 1, 'win': False, 'letter': letter})
 
 def playShare(request, uui):
